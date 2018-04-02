@@ -1,0 +1,24 @@
+﻿$font-stack: 'Roboto', sans-serif;
+$color-primary: #309255;
+$color-theme: #7cb342;
+$color-light: #fff;
+$color-dark: rgba(0,0,0,.87);
+$base-margin: 1em;
+
+$color-legendary: #ff8000;
+$color-epic: #a335ee;
+$color-rare: #0070dd;
+$color-uncommon: #1EFF00;
+
+$spacing: 16px;
+
+$color-background: #032529;
+
+$base-rounding: 4px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}

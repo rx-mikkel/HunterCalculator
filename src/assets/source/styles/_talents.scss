@@ -1,0 +1,331 @@
+.character-setup {
+	position: relative;
+	display: inline-block;
+	max-width: 804px;
+	width: 100%;
+
+	&.collapsed {
+		max-width: 400px;
+	}
+}
+
+.full-view {
+	padding: $spacing;
+	margin: $spacing;
+	margin-top: 16px;
+	display: inline-block;
+	background-color: #011f23;
+	border-radius: 4px;
+	box-shadow: inset 0px 2px 5px rgba(0,0,0,.8);
+}
+
+.compact-view {
+	padding: $spacing;
+	margin: $spacing;
+	margin-top: 16px;
+	display: inline-block;
+	background-color: #011f23;
+	border-radius: 4px;
+	box-shadow: inset 0px 2px 5px rgba(0,0,0,.8);
+
+	.talent-tile {
+		max-width: 35px;
+		max-height: 35px;
+	}
+
+	&.new-view {
+		transition: all .4s ease;
+		opacity: .4;
+		box-shadow: none;
+		cursor: pointer;
+
+		input {
+			cursor: pointer;
+		}
+
+		.header {
+			opacity: .6;
+		}
+
+		&:hover {
+			opacity: .8;
+		}
+	}
+}
+
+.stat-input {
+	width: 46px; 
+	margin-right: $spacing;
+}
+
+.header {
+	background-color: darken($color-primary, 15%);
+	border-radius: 4px 4px 0px 0px;
+	margin: -16px;
+	margin-bottom: 0px;
+	padding: 8px 16px;
+
+	h2 {
+		font-size: 20px;
+		margin: 8px 0px;
+	}
+}
+
+.weapon-link {
+	text-decoration: underline;
+	color: $color-primary;
+	cursor: pointer;
+}
+
+.introduction {
+	padding: $spacing;
+
+	p {
+		max-width: 600px;
+		opacity: .87;
+		font-size: 15px;
+	}
+}
+
+h1 {
+	font-size: 28px;
+}
+
+h2 {
+	margin: $spacing 0px;
+}
+
+hr {
+	border: .5px dashed $color-primary;
+	margin: $spacing*2 0px;
+}
+
+p, span {
+	&.epic {
+		color: $color-epic;
+	}
+
+	&.rare {
+		color: $color-rare;
+	}
+
+	&.uncommon {
+		color: $color-uncommon;
+	}
+}
+
+a {
+	color: #12a5c0;
+	transition: all .2s ease;
+
+	&:hover {
+		color: #13c7e8;
+	}
+}
+
+.talent-container {
+	width: 20%;
+	padding: 16px;
+}
+
+.talent-tile {
+	transition: all .3s ease;
+	position: relative;
+	max-width: 60px;
+	max-height: 60px;
+	width: 100%;
+	border-radius: 4px;
+	border: 2px solid $color-primary;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	cursor: pointer;
+
+	.tooltip {
+		display: none;
+		position: absolute;
+		bottom: 105%;
+		left: 105%;
+		padding: $spacing/2;
+		border-radius: 4px;
+		background-color: rgba(0,0,0,.7);
+		z-index: 128;
+
+		p {
+			margin: 0px;
+			white-space: nowrap;
+		}
+	}
+
+	img {
+		height: 100%;
+		width: 100%;
+		transition: all .3s ease;
+		border-radius: 4px;
+	}
+
+	&.maxed {
+		border: 2px solid #68d591;
+		box-shadow: 0px 0px 11px #68d591;
+
+		.talent-number-indicator {
+			color: #68d591;
+			border: 1px solid #68d591;
+		}
+	}
+}
+
+.talent-tile:hover {
+	.tooltip {
+		display: block;
+	}
+}
+
+.talent-number-indicator {
+	position: absolute;
+	bottom: -7px;
+	right: -7px;
+	transition: all .3s ease;
+	font-size: 14px;
+	padding-top: 1px;
+	color: $color-primary;
+	border: 1px solid $color-primary;
+	width: 20px;
+	height: 20px;
+	background-color: rgba(0,0,0,.8);
+	border-radius: 3px;
+	text-align: center;
+}
+
+.weapon-container {
+	padding: 8px; 
+	cursor: pointer;
+}
+
+.epic {
+	.weapon-image {
+		border-color: $color-epic;
+	}
+}
+
+.rare {
+	.weapon-image {
+		border-color: $color-rare;
+	}
+}
+
+.uncommon {
+	.weapon-image {
+		border-color: $color-uncommon;
+	}
+}
+
+.weapon-image {
+	width: 46px;
+	height: 46px;
+	border: 2px solid #666;
+	vertical-align: middle;
+	transition: all .3s ease;
+	border-radius: 4px;
+}
+
+.weapon-text {
+	display: inline-block; 
+	vertical-align: middle; 
+	padding-left: 8px;
+	white-space: nowrap; 
+    width: 200px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+
+	.stats {
+		font-size: 14px;
+		color: #ccc;
+	}
+}
+
+.type-text {
+	color: $color-primary;
+	font-size: 14px;
+}
+
+.discrete {
+	font-size: 14px;
+	color: #ccc;
+}
+
+.weapon-overlay {
+	position: absolute;
+	top: -50px;
+	left: 0px;
+	width: 320px;
+	background-color: $color-background;
+	padding: $spacing;
+	z-index: 128;
+	border-radius: 8px;
+	box-shadow: 0px 2px 10px rgba(0,0,0,.8);
+
+	.inner {
+		overflow: auto;
+		max-height: 480px;
+		box-shadow: inset 0px 2px 10px rgba(0,0,0,.8);
+	}
+}
+
+.selected-weapon {
+	white-space: nowrap; 
+	width: 240px; 
+	text-overflow: ellipsis; 
+	overflow: hidden;
+}
+
+.result {
+	font-weight: bold;
+	font-size: 1.1em;
+	color: $color-primary;
+}
+
+.column {
+	width: 50%;
+	&.right {
+		padding-left: $spacing;
+	}
+	&.left {
+		padding-right: $spacing;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+    .character-setup {
+
+		.talent-container {
+			padding: 8px;
+		}
+	}
+	.character-setup {
+		.header h2 {
+			font-size: 16px;
+			line-height: 24px;
+		}
+	}
+	.weapon-overlay {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		border-radius: 0px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.column {
+		width: 100%;
+		&.right {
+			padding-left: 0px;
+		}
+		&.left {
+			padding-right: 0px;
+		}
+	}
+    
+}

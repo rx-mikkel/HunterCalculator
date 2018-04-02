@@ -1,0 +1,54 @@
+<div>
+	<h2>Damage cycles</h2>
+	<p>Attack speed after quiver (15%): {{adjustedSpeed | number:'1.1-2'}}</p>
+	<button mat-raised-button style="margin: 8px 0px;" (click)="toggleCycleDetails();">
+		<mat-icon style="margin-right: 8px;">visibility</mat-icon>
+		Details
+	</button>
+	<br /><br />
+	<div *ngIf="showCycleDetails">
+		<h4>Average damage</h4>
+		<br />
+		<div>
+			<span class="discrete">Auto Shot Average: {{autoShotAvg | number:'1.1-2'}}</span><br />
+			<span class="discrete">Auto Shot Average Crit: {{autoShotAvgCrit | number:'1.1-2'}}</span><br />
+		</div>
+		<p>Auto Shot: <span class="result">{{autoShotFinal | number:'1.1-2'}}</span></p>
+		<div>
+			<span class="discrete">Aimed Shot Average: {{aimedShotAvg | number:'1.1-2'}}</span><br />
+			<span class="discrete">Aimed Shot Average Crit: {{aimedShotAvgCrit | number:'1.1-2'}}</span><br />
+		</div>
+		<p>Aimed Shot: <span class="result">{{aimedShotFinal | number:'1.1-2'}}</span></p>
+		<div>
+			<span class="discrete">Multi Shot Average: {{multiShotAvg | number:'1.1-2'}}</span><br />
+			<span class="discrete">Multi Shot Average Crit: {{multiShotAvgCrit | number:'1.1-2'}}</span><br />
+		</div>
+		<p>Multi Shot: <span class="result">{{multiShotFinal | number:'1.1-2'}}</span></p>
+	</div>
+	<br />
+	<h3>Clipped</h3>
+	<!--
+	<p matTooltip="Clipped cycles are 9 seconds long so every 7th cycle multishot will not be ready before casting Aimed shot.">Multi Shot coefficient: 6/7</p>
+	-->
+	<div *ngIf="showCycleDetails">
+		<p>Cycle Auto Shot ({{clippedAutos}}): {{clippedAutoshotDamage | number:'1.1-2'}}</p>
+		<p>Multi Shot coefficient: 6/7</p>
+		<p>Cycle Multi Shot: {{clippedMultiShotDamage | number:'1.1-2'}}</p>
+	</div>
+	<p>Cycle total: {{clippedTotal | number:'1.1-2'}}</p>
+	<p>Cycle time: 9s</p>
+	<p class="result">DPS: {{clippedDPS | number:'1.1-2'}}</p>
+	<br />
+	<h3>Full</h3>
+	<!--
+	<p>Multi Shot coefficient: {{multiShotCoefficient | number:'1.1-2'}}</p>
+	-->
+	<div *ngIf="showCycleDetails">
+		<p>Cycle Auto Shot ({{clippedAutos + 1}}): {{fullAutoshotDamage | number:'1.1-2'}}</p>
+		<p>Multi Shot coefficient: {{multiShotCoefficient | number:'1.1-2'}}</p>
+		<p>Cycle Multi Shot: {{fullMultiShotDamage | number:'1.1-2'}}</p>
+	</div>
+	<p>Cycle total: {{fullTotal | number:'1.1-2'}}</p>
+	<p>Cycle time: {{fullCycleTime | number:'1.1-2'}}s</p>
+	<p class="result">DPS: {{fullDPS | number:'1.1-2'}}</p>
+</div>
