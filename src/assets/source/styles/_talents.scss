@@ -287,6 +287,8 @@ a {
 
 .column {
 	width: 50%;
+	display: block;
+	float: left;
 	&.right {
 		padding-left: $spacing;
 	}

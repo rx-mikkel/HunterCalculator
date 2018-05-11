@@ -30,8 +30,8 @@
 				</div>
 			</div>
 
-			<div fxLayout="row">
-				<div style="padding-right: 16px;" fxFlex>
+			<div style="width: 100%;">
+				<div class="column left">
 					<h2>Character sheet</h2>
 					<div class="selected-weapon" [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'" *ngIf="selectedWeapon">
 						<span class="weapon-link" (click)="toggleWeaponOverlay();" [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'">{{selectedWeapon.name}}</span>
@@ -65,17 +65,16 @@
 						</div>
 					</div>
 					<br />
-					<mat-form-field style="width: 100px; margin-right: 16px;">
+					<mat-form-field style="width: 90px; margin-right: 16px;">
 						<input matInput placeholder="Attack power" [(ngModel)]="baseAP">
 					</mat-form-field>
-					<mat-form-field style="width: 100px;">
+					<mat-form-field style="width: 90px; margin-right: 16px;">
 						<input matInput placeholder="Critical strike (%)" [(ngModel)]="criticalStrikeChance">
 					</mat-form-field>
-					<br />
-					<mat-form-field style="width: 100px; margin-right: 16px;">
+					<mat-form-field style="width: 90px; margin-right: 16px;">
 						<input matInput placeholder="Ammo dps" [(ngModel)]="ammo">
 					</mat-form-field>
-					<mat-form-field style="width: 100px;">
+					<mat-form-field style="width: 90px;">
 						<input matInput placeholder="Scope damage" [(ngModel)]="rangedScope">
 					</mat-form-field>
 					<hr />
@@ -89,7 +88,7 @@
 					<button style="margin: 16px 0px;" type="button" (click)="addAgility()" mat-raised-button color="primary">Add {{agility}} agility</button>
 				</div>
 
-				<calculated-table style="padding-left: 16px;" fxFlex
+				<calculated-table class="column right"
 					[selectedWeapon]="selectedWeapon"
 					[slaying]="slaying" 
 					[rws]="rws" 
