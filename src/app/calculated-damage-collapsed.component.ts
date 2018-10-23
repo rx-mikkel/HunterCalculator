@@ -98,7 +98,7 @@ export class CalculatedDamageCollapsedComponent implements OnChanges {
 		else {
 			this.shotVars.gs = 1;
 		}
-		console.log(this.shotVars);
+		
 		this.calculateAutoShot();
 		this.calculateAimedShot();
 		this.calculateMultiShot();
