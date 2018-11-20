@@ -47,6 +47,8 @@ import {
   MatStepperModule,
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   exports: [
@@ -82,7 +84,8 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-  ]
+  ],
+  imports: [ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })]
 })
 export class MaterialModule {}
 

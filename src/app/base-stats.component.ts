@@ -146,13 +146,15 @@ export class BaseStatsComponent implements OnInit {
 			}
 		}
 
-		setInterval(() => this.saveToLocalStorage(), 1100);
+		//setInterval(() => this.saveToLocalStorage(), 1100);
 	}
 
 	increaseTalent(talent) {
 		if(talent.currentRank < talent.ranks) {
 			talent.currentRank = talent.currentRank + 1;
 		}
+
+		this.saveToLocalStorage();
 	}
 
 	toggleMaxTalent(talent) {
@@ -177,11 +179,15 @@ export class BaseStatsComponent implements OnInit {
 		if(talent.id == 'gs') {
 			this.gs = talent.currentRank;
 		}
+
+		this.saveToLocalStorage()
 	}
 
 	setSelectedWeapon(weapon) {
 		this.selectedWeapon = weapon;
 		this.displayWeaponOverlay = false;
+
+		this.saveToLocalStorage()
 	}
 
 	toggleWeaponOverlay() {
@@ -193,6 +199,8 @@ export class BaseStatsComponent implements OnInit {
 		this.criticalStrikeChance = +(+this.criticalStrikeChance + (+this.agility)/53).toFixed(4);
 
 		this.agility = 1;
+
+		this.saveToLocalStorage()
 	}
 
 	saveToLocalStorage() {

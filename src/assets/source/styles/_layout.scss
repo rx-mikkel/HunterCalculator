@@ -14,3 +14,15 @@ h2 {
 	font-size: 22px;
 }
 
+.stdTable {
+	width: 100%;
+
+	th, td {
+		padding: $spacing/4 0px;
+	}
+}
+
+.averages {
+	margin: $spacing 0px;
+	font-size: 14px;
+}

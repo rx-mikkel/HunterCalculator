@@ -5,50 +5,104 @@
 		<mat-icon style="margin-right: 8px;">visibility</mat-icon>
 		Details
 	</button>
-	<br /><br />
-	<div *ngIf="showCycleDetails">
-		<h4>Average damage</h4>
-		<br />
-		<div>
-			<span class="discrete">Auto Shot Average: {{autoShotAvg | number:'1.1-2'}}</span><br />
-			<span class="discrete">Auto Shot Average Crit: {{autoShotAvgCrit | number:'1.1-2'}}</span><br />
-		</div>
-		<p>Auto Shot: <span class="result">{{autoShotFinal | number:'1.1-2'}}</span></p>
-		<div>
-			<span class="discrete">Aimed Shot Average: {{aimedShotAvg | number:'1.1-2'}}</span><br />
-			<span class="discrete">Aimed Shot Average Crit: {{aimedShotAvgCrit | number:'1.1-2'}}</span><br />
-		</div>
-		<p>Aimed Shot: <span class="result">{{aimedShotFinal | number:'1.1-2'}}</span></p>
-		<div>
-			<span class="discrete">Multi Shot Average: {{multiShotAvg | number:'1.1-2'}}</span><br />
-			<span class="discrete">Multi Shot Average Crit: {{multiShotAvgCrit | number:'1.1-2'}}</span><br />
-		</div>
-		<p>Multi Shot: <span class="result">{{multiShotFinal | number:'1.1-2'}}</span></p>
-	</div>
 	<br />
-	<h3>Clipped</h3>
-	<!--
-	<p matTooltip="Clipped cycles are 9 seconds long so every 7th cycle multishot will not be ready before casting Aimed shot.">Multi Shot coefficient: 6/7</p>
-	-->
-	<div *ngIf="showCycleDetails">
-		<p>Cycle Auto Shot ({{clippedAutos}}): {{clippedAutoshotDamage | number:'1.1-2'}}</p>
-		<p>Multi Shot coefficient: 6/7</p>
-		<p>Cycle Multi Shot: {{clippedMultiShotDamage | number:'1.1-2'}}</p>
-	</div>
-	<p>Cycle total: {{clippedTotal | number:'1.1-2'}}</p>
-	<p>Cycle time: 9s</p>
-	<p class="result">DPS: {{clippedDPS | number:'1.1-2'}}</p>
+	<table class="stdTable">
+		<tr>
+			<td><h3>Clipped</h3></td>
+			<td style="text-align: right;"><span class="result">{{clippedDPS | number:'1.1-2'}}</span> dps</td>
+		</tr>
+		<tr *ngIf="showCycleDetails">
+			<td>Auto Shot ({{clippedAutos}}):</td>
+			<td style="text-align: right;">{{clippedAutoshotDamage | number:'1.1-2'}}</td>
+		</tr>
+		<tr *ngIf="showCycleDetails">
+			<td>Multi Shot coefficient:</td>
+			<td style="text-align: right;">6/7</td>
+		</tr>
+		<tr *ngIf="showCycleDetails">
+			<td>Multi Shot:</td>
+			<td style="text-align: right;">{{clippedMultiShotDamage | number:'1.1-2'}}</td>
+		</tr>
+		<tr>
+			<td>Damage:</td>
+			<td style="text-align: right;">{{clippedTotal | number:'1.1-2'}}</td>
+		</tr>
+		<tr>
+			<td>Duration:</td>
+			<td style="text-align: right;">9s</td>
+		</tr>
+	</table>
 	<br />
-	<h3>Full</h3>
-	<!--
-	<p>Multi Shot coefficient: {{multiShotCoefficient | number:'1.1-2'}}</p>
-	-->
+	<table class="stdTable">
+		<tr>
+			<td><h3>Full</h3></td>
+			<td style="text-align: right;"><span class="result">{{fullDPS | number:'1.1-2'}}</span> dps</td>
+		</tr>
+		<tr *ngIf="showCycleDetails">
+			<td>Auto Shot ({{clippedAutos + 1}}):</td>
+			<td style="text-align: right;">{{fullAutoshotDamage | number:'1.1-2'}}</td>
+		</tr>
+		<tr *ngIf="showCycleDetails">
+			<td>Multi Shot coefficient:</td>
+			<td style="text-align: right;">{{multiShotCoefficient | number:'1.1-2'}}</td>
+		</tr>
+		<tr *ngIf="showCycleDetails">
+			<td>Multi Shot:</td>
+			<td style="text-align: right;">{{fullMultiShotDamage | number:'1.1-2'}}</td>
+		</tr>
+		<tr>
+			<td>Damage:</td>
+			<td style="text-align: right;">{{fullTotal | number:'1.1-2'}}</td>
+		</tr>
+		<tr>
+			<td>Duration:</td>
+			<td style="text-align: right;">{{fullCycleTime | number:'1.1-2'}}s</td>
+		</tr>
+	</table>
 	<div *ngIf="showCycleDetails">
-		<p>Cycle Auto Shot ({{clippedAutos + 1}}): {{fullAutoshotDamage | number:'1.1-2'}}</p>
-		<p>Multi Shot coefficient: {{multiShotCoefficient | number:'1.1-2'}}</p>
-		<p>Cycle Multi Shot: {{fullMultiShotDamage | number:'1.1-2'}}</p>
+		<br>
+		<h4>Average damages</h4>
+		<div class="averages">
+			<div fxLayout="row">
+				<div fxFlex="<grow>"><strong>Auto Shot:</strong></div>
+				<div fxFlex><span class="result">{{autoShotFinal | number:'1.1-2'}}</span></div>
+			</div>
+			<div fxLayout="row">
+				<div fxFlex="<grow>">Average:</div>
+				<div fxFlex>{{autoShotAvg | number:'1.1-2'}}</div>
+			</div>
+			<div fxLayout="row">
+				<div fxFlex="<grow>">Average crit:</div>
+				<div fxFlex>{{autoShotAvgCrit | number:'1.1-2'}}</div>
+			</div>
+		</div>
+		<div class="averages">
+			<div fxLayout="row">
+				<div fxFlex="<grow>"><strong>Aimed Shot:</strong></div>
+				<div fxFlex><span class="result">{{aimedShotFinal | number:'1.1-2'}}</span></div>
+			</div>
+			<div fxLayout="row">
+				<div fxFlex="<grow>">Average:</div>
+				<div fxFlex>{{aimedShotAvg | number:'1.1-2'}}</div>
+			</div>
+			<div fxLayout="row">
+				<div fxFlex="<grow>">Average crit:</div>
+				<div fxFlex>{{aimedShotAvgCrit | number:'1.1-2'}}</div>
+			</div>
+		</div>
+		<div class="averages">
+			<div fxLayout="row">
+				<div fxFlex="<grow>"><strong>Multi Shot:</strong></div>
+				<div fxFlex><span class="result">{{multiShotFinal | number:'1.1-2'}}</span></div>
+			</div>
+			<div fxLayout="row">
+				<div fxFlex="<grow>">Average:</div>
+				<div fxFlex>{{multiShotAvg | number:'1.1-2'}}</div>
+			</div>
+			<div fxLayout="row">
+				<div fxFlex="<grow>">Average crit:</div>
+				<div fxFlex>{{multiShotAvgCrit | number:'1.1-2'}}</div>
+			</div>
+		</div>
 	</div>
-	<p>Cycle total: {{fullTotal | number:'1.1-2'}}</p>
-	<p>Cycle time: {{fullCycleTime | number:'1.1-2'}}s</p>
-	<p class="result">DPS: {{fullDPS | number:'1.1-2'}}</p>
 </div>
