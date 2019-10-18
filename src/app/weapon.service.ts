@@ -186,6 +186,42 @@ export class WeaponService {
 			dmgMin: 53,
 			dmgMax: 100,
 			speed: 2.8
+		},
+		{
+			name: "Dwarven Hand Cannon",
+			icon: '../assets/build/images/rifle.jpg',
+			type: 'Gun',
+			quality: 'epic',
+			dmgMin: 66,
+			dmgMax: 124,
+			speed: 2.9
+		},
+		{
+			name: "Hurricane",
+			icon: '../assets/build/images/bow.jpg',
+			type: 'Bow',
+			quality: 'epic',
+			dmgMin: 34,
+			dmgMax: 63,
+			speed: 1.6
+		},
+		{
+			name: "Striker's Mark",
+			icon: '../assets/build/images/bow.jpg',
+			type: 'Bow',
+			quality: 'epic',
+			dmgMin: 69,
+			dmgMax: 129,
+			speed: 2.5
+		},
+		{
+			name: "Core Marksman Rifle",
+			icon: '../assets/build/images/rifle.jpg',
+			type: 'Gun',
+			quality: 'epic',
+			dmgMin: 64,
+			dmgMax: 120,
+			speed: 2.5
 		}
 	]
 
