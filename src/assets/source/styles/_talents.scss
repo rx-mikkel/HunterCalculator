@@ -88,11 +88,16 @@
 }
 
 h1 {
-	font-size: 28px;
+	font-size: 24px;
 }
 
 h2 {
 	margin: $spacing 0px;
+	font-size: 20px;
+}
+
+h3 {
+	font-size: 18px;
 }
 
 hr {
@@ -100,18 +105,16 @@ hr {
 	margin: $spacing 0px;
 }
 
-p, span {
-	&.epic {
-		color: $color-epic;
-	}
+.epic {
+	color: $color-epic;
+}
 
-	&.rare {
-		color: $color-rare;
-	}
+.rare {
+	color: $color-rare;
+}
 
-	&.uncommon {
-		color: $color-uncommon;
-	}
+.uncommon {
+	color: $color-uncommon;
 }
 
 a {

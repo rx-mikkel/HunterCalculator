@@ -159,6 +159,33 @@ export class WeaponService {
 			dmgMin: 29,
 			dmgMax: 45,
 			speed: 3.4
+		},
+		{
+			name: "Satyr's Bow",
+			icon: '../assets/build/images/bow.jpg',
+			type: 'Bow',
+			quality: 'rare',
+			dmgMin: 50,
+			dmgMax: 93,
+			speed: 2.4
+		},
+		{
+			name: "Blackcrow",
+			icon: '../assets/build/images/xbow.jpg',
+			type: 'Crossbow',
+			quality: 'rare',
+			dmgMin: 77,
+			dmgMax: 117,
+			speed: 3.2
+		},
+		{
+			name: "Verdant Keeper's Aim",
+			icon: '../assets/build/images/bow.jpg',
+			type: 'Bow',
+			quality: 'rare',
+			dmgMin: 53,
+			dmgMax: 100,
+			speed: 2.8
 		}
 	]
 
