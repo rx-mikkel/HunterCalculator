@@ -12,8 +12,8 @@
 			<calculator *ngFor="let component of compareComponents"></calculator>
 
 
-			<div class="character-setup" style="max-width: 400px; width: 100%; position: relative; display: inline-block;" (click)="addCompareCalculator();">
-				<button style="pointer-events: none; position: absolute; top: 50%; left: 50%; z-index: 256; transform: translate(-50%, 0px);" mat-raised-button color="primary">
+			<div class="character-setup" style="max-width: 400px; min-width: 340px; width: 100%; position: relative; display: inline-block;" (click)="addCompareCalculator();">
+				<button style="pointer-events: none; position: absolute; top: 50%; left: 50%; z-index: 127; transform: translate(-50%, 0px);" mat-raised-button color="primary">
 					New alternative setup
 				</button>
 				<div class="compact-view new-view" fxLayout="column">

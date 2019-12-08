@@ -42,7 +42,7 @@
 					</div>
 					<div style="position: relative;">
 						<div class="weapon-overlay" *ngIf="displayWeaponOverlay">
-							<button type="button" style="position: absolute; top: 16px; right: 8px;" (click)="toggleWeaponOverlay();" mat-icon-button>
+							<button type="button" style="position: absolute; top: 8px; right: 8px;" (click)="toggleWeaponOverlay();" mat-icon-button>
 								<mat-icon>close</mat-icon>
 							</button>
 							<div *ngIf="weapons">
@@ -102,7 +102,7 @@
 	</div>
 
 
-	<div [hidden]="!collapsed" style="max-width: 400px;">
+	<div [hidden]="!collapsed" style="max-width: 400px; min-width: 340px;">
 		<div class="compact-view" fxLayout="column">
 			<div class="header" fxLayout="row">
 				<div fxFLex="<grow>">
@@ -128,12 +128,12 @@
 				<p [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'" class="weapon-link" (click)="toggleWeaponOverlay()">{{selectedWeapon.name}}</p>
 				<div style="position: relative;">
 					<div class="weapon-overlay" *ngIf="displayWeaponOverlay">
-						<button type="button" style="position: absolute; top: 16px; right: 8px;" (click)="toggleWeaponOverlay();" mat-icon-button>
+						<button type="button" style="position: absolute; top: 8px; right: 8px;" (click)="toggleWeaponOverlay();" mat-icon-button>
 							<mat-icon>close</mat-icon>
 						</button>
 						<div *ngIf="weapons">
 							<mat-form-field style="width: 200px;">
-								<input matInput placeholder="Filter weapons (by name)" aria-label="weapon" [formControl]="weaponControl">
+								<input matInput placeholder="Filter weapons (by name)" aria-label="weapon" autofocus [formControl]="weaponControl">
 							</mat-form-field>
 						</div>
 						<div class="inner">
@@ -153,10 +153,10 @@
 				<mat-form-field class="stat-input">
 					<input matInput placeholder="Crit (%)" [(ngModel)]="criticalStrikeChance">
 				</mat-form-field>
-				<mat-form-field class="stat-input">
+				<mat-form-field class="stat-input small">
 					<input matInput placeholder="Ammo" [(ngModel)]="ammo">
 				</mat-form-field>
-				<mat-form-field class="stat-input" style="margin-right: 0px;">
+				<mat-form-field class="stat-input small" style="margin-right: 0px;">
 					<input matInput placeholder="Scope" [(ngModel)]="rangedScope">
 				</mat-form-field>
 			</div>
