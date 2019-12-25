@@ -222,6 +222,33 @@ export class WeaponService {
 			dmgMin: 64,
 			dmgMax: 120,
 			speed: 2.5
+		},
+		{
+			name: "Dragonbreath Hand Cannon",
+			icon: '../assets/build/images/rifle2.jpg',
+			type: 'Gun',
+			quality: 'epic',
+			dmgMin: 86,
+			dmgMax: 160,
+			speed: 2.8
+		},
+		{
+			name: "Heartstriker",
+			icon: '../assets/build/images/bow.jpg',
+			type: 'Bow',
+			quality: 'epic',
+			dmgMin: 80,
+			dmgMax: 149,
+			speed: 2.6
+		},
+		{
+			name: "Blastershot Launcher",
+			icon: '../assets/build/images/rifle3.jpg',
+			type: 'Gun',
+			quality: 'epic',
+			dmgMin: 73,
+			dmgMax: 136,
+			speed: 2.6
 		}
 	]
 

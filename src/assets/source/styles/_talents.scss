@@ -208,6 +208,10 @@ a {
 .weapon-container {
 	padding: 8px; 
 	cursor: pointer;
+
+	& + .weapon-container {
+    	padding-top: 0px;
+  	}
 }
 
 .epic {
