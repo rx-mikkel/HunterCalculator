@@ -14,6 +14,10 @@ export class AppComponent implements OnInit {
 
 	compareComponents: any = [];
 
+	phases: any = [1,2,3,4,5,6];
+	selectedPhase: number = 3;
+	recommendedWeapons: boolean = false;
+
 	selectedWeapon: any = {
 		name: "Ashjre'thul, Crossbow of Smiting",
 		icon: '../assets/build/images/ashj.jpg',

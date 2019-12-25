@@ -51,7 +51,7 @@
 								</mat-form-field>
 							</div>
 							<div class="inner">
-								<div class="weapon-container" [class.epic]="weapon.quality == 'epic'" [class.rare]="weapon.quality == 'rare'" [class.uncommon]="weapon.quality == 'uncommon'" (click)="setSelectedWeapon(weapon);" *ngFor="let weapon of filteredWeapons | async">
+								<div class="weapon-container" [class.epic]="weapon.quality == 'epic'" [class.rare]="weapon.quality == 'rare'" [class.uncommon]="weapon.quality == 'uncommon'" (click)="setSelectedWeapon(weapon);" [hidden]="rcomWeapons == true && weapon.recommended == false" *ngFor="let weapon of filteredWeapons | async">
 									<img class="weapon-image" [src]="weapon.icon" />
 									<div class="weapon-text">
 										{{weapon.name}}<br />
@@ -137,7 +137,7 @@
 							</mat-form-field>
 						</div>
 						<div class="inner">
-							<div class="weapon-container" [class.epic]="weapon.quality == 'epic'" [class.rare]="weapon.quality == 'rare'" [class.uncommon]="weapon.quality == 'uncommon'" (click)="setSelectedWeapon(weapon);" *ngFor="let weapon of filteredWeapons | async">
+							<div class="weapon-container" [class.epic]="weapon.quality == 'epic'" [class.rare]="weapon.quality == 'rare'" [class.uncommon]="weapon.quality == 'uncommon'" (click)="setSelectedWeapon(weapon);" [hidden]="rcomWeapons == true && weapon.recommended == false" *ngFor="let weapon of filteredWeapons | async">
 								<img class="weapon-image" [src]="weapon.icon" />
 								<div class="weapon-text">
 									{{weapon.name}}<br />

@@ -28,3 +28,12 @@ h2 {
 	margin: $spacing 0px;
 	font-size: 14px;
 }
+
+.settings {
+	text-align: right;
+
+	.section {
+		display: inline-block;
+		padding: 0px $spacing;
+	}
+}

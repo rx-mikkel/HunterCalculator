@@ -7,9 +7,25 @@
 				<p>Enter your stats, talents and weapon. Add alternative setup to compare.</p>
 			</div>
 
-			<base-stats></base-stats>
+			<div class="settings">
+				<div class="section">
+					<mat-form-field style="width: 60px;">
+						<mat-label>Phase</mat-label>
+						<mat-select [(ngModel)]="selectedPhase">
+							<mat-option *ngFor="let phase of phases" [value]="phase">
+								{{phase}}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				<div class="section">
+					<mat-checkbox [(ngModel)]="recommendedWeapons">Only recommended weapons</mat-checkbox>
+				</div>
+			</div>
 
-			<calculator *ngFor="let component of compareComponents"></calculator>
+			<base-stats [rcomWeapons]="recommendedWeapons"></base-stats>
+
+			<calculator [rcomWeapons]="recommendedWeapons" *ngFor="let component of compareComponents"></calculator>
 
 
 			<div class="character-setup" style="max-width: 400px; min-width: 340px; width: 100%; position: relative; display: inline-block;" (click)="addCompareCalculator();">

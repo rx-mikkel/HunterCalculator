@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { startWith, map } from 'rxjs/operators';
@@ -20,6 +20,8 @@ export class BaseStatsComponent implements OnInit {
 			map(weapon => weapon ? this.filterWeapons(weapon) : this.weapons.slice())
 		);
 	}
+
+	@Input() rcomWeapons: boolean;
 
 	weaponControl: FormControl;
 	filteredWeapons: any;
