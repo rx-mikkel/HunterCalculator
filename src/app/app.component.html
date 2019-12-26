@@ -1,6 +1,6 @@
 <div fxFlexFill fxLayout="column">
 	<div fxFlex="<grow>" fxFlexFill>
-		<div style="max-width: 1616px;">
+		<div style="max-width: 1600px;">
 			<div class="introduction">
 				<h1>Hunter damage calculator</h1>
 				<p>Does 8 agility beat 20 attack power given your current stats? If you want a more in-depth <a href="https://youtu.be/QyCUqLvgBpc">introduction</a> watch the video</p>
@@ -9,7 +9,7 @@
 
 			<div class="settings">
 				<div class="section">
-					<mat-form-field style="width: 60px;">
+					<mat-form-field color="accent" style="width: 60px;">
 						<mat-label>Phase</mat-label>
 						<mat-select [(ngModel)]="selectedPhase">
 							<mat-option *ngFor="let phase of phases" [value]="phase">
@@ -23,9 +23,9 @@
 				</div>
 			</div>
 
-			<base-stats [rcomWeapons]="recommendedWeapons"></base-stats>
+			<base-stats [phase]="selectedPhase" [rcomWeapons]="recommendedWeapons"></base-stats>
 
-			<calculator [rcomWeapons]="recommendedWeapons" *ngFor="let component of compareComponents"></calculator>
+			<calculator [phase]="selectedPhase" [rcomWeapons]="recommendedWeapons" *ngFor="let component of compareComponents"></calculator>
 
 
 			<div class="character-setup" style="max-width: 400px; min-width: 340px; width: 100%; position: relative; display: inline-block;" (click)="addCompareCalculator();">

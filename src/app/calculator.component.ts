@@ -21,6 +21,7 @@ export class CalculatorComponent implements OnInit {
 		);
 	}
 
+	@Input() phase: number;
 	@Input() rcomWeapons: boolean;
 
 	weaponControl: FormControl;

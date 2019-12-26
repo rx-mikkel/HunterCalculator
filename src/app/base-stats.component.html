@@ -1,7 +1,7 @@
 <div class="character-setup" [class.collapsed]="collapsed">
 	<div [hidden]="collapsed">
 		<div class="full-view" fxLayout="column">
-			<div class="header" fxLayout="row">
+			<div class="header" style="background-color: #114223;" fxLayout="row">
 				<div fxFLex="<grow>">
 					<h2>Character setup</h2>
 				</div>
@@ -47,11 +47,11 @@
 							</button>
 							<div *ngIf="weapons">
 								<mat-form-field style="width: 200px;">
-									<input matInput placeholder="Filter weapons (by name)" aria-label="weapon" [formControl]="weaponControl">
+									<input matInput placeholder="Filter (by name)" aria-label="weapon" [formControl]="weaponControl">
 								</mat-form-field>
 							</div>
 							<div class="inner">
-								<div class="weapon-container" [class.epic]="weapon.quality == 'epic'" [class.rare]="weapon.quality == 'rare'" [class.uncommon]="weapon.quality == 'uncommon'" (click)="setSelectedWeapon(weapon);" [hidden]="rcomWeapons == true && weapon.recommended == false" *ngFor="let weapon of filteredWeapons | async">
+								<div class="weapon-container" [class.epic]="weapon.quality == 'epic'" [class.rare]="weapon.quality == 'rare'" [class.uncommon]="weapon.quality == 'uncommon'" (click)="setSelectedWeapon(weapon);" [hidden]="rcomWeapons == true && weapon.recommended == false || phase < weapon.phase" *ngFor="let weapon of filteredWeapons | async">
 									<img class="weapon-image" [src]="weapon.icon" />
 									<div class="weapon-text">
 										{{weapon.name}}<br />
@@ -104,7 +104,7 @@
 
 	<div [hidden]="!collapsed" style="max-width: 400px; min-width: 340px;">
 		<div class="compact-view" fxLayout="column">
-			<div class="header" fxLayout="row">
+			<div class="header" style="background-color: #114223;" fxLayout="row">
 				<div fxFLex="<grow>">
 					<h2>Character setup</h2>
 				</div>
@@ -133,11 +133,11 @@
 						</button>
 						<div *ngIf="weapons">
 							<mat-form-field style="width: 200px;">
-								<input matInput placeholder="Filter weapons (by name)" aria-label="weapon" autofocus [formControl]="weaponControl">
+								<input matInput placeholder="Filter (by name)" aria-label="weapon" autofocus [formControl]="weaponControl">
 							</mat-form-field>
 						</div>
 						<div class="inner">
-							<div class="weapon-container" [class.epic]="weapon.quality == 'epic'" [class.rare]="weapon.quality == 'rare'" [class.uncommon]="weapon.quality == 'uncommon'" (click)="setSelectedWeapon(weapon);" [hidden]="rcomWeapons == true && weapon.recommended == false" *ngFor="let weapon of filteredWeapons | async">
+							<div class="weapon-container" [class.epic]="weapon.quality == 'epic'" [class.rare]="weapon.quality == 'rare'" [class.uncommon]="weapon.quality == 'uncommon'" (click)="setSelectedWeapon(weapon);" [hidden]="rcomWeapons == true && weapon.recommended == false || phase < weapon.phase" *ngFor="let weapon of filteredWeapons | async">
 								<img class="weapon-image" [src]="weapon.icon" />
 								<div class="weapon-text">
 									{{weapon.name}}<br />
@@ -176,6 +176,4 @@
 			</div>
 		</div>
 	</div>
-
-	<div style="padding: 8px;"></div>
 </div>

@@ -15,7 +15,8 @@ export class WeaponService {
 			dmgMin: 124,
 			dmgMax: 186,
 			speed: 3.4,
-			recommended: true
+			recommended: true,
+			phase: 3
 		},
 		{
 			name: 'Bloodseeker',
@@ -25,8 +26,8 @@ export class WeaponService {
 			dmgMin: 85,
 			dmgMax: 128,
 			speed: 3.3,
-			recommended: true
-
+			recommended: true,
+			phase: 3
 		},
 		{
 			name: 'Nerubian Slavemaker',
@@ -36,7 +37,8 @@ export class WeaponService {
 			dmgMin: 128,
 			dmgMax: 238,
 			speed: 3.2,
-			recommended: true
+			recommended: true,
+			phase: 6
 		},
 		{
 			name: "Grand Marshal's Repeater",
@@ -46,7 +48,8 @@ export class WeaponService {
 			dmgMin: 107,
 			dmgMax: 162,
 			speed: 2.9,
-			recommended: true
+			recommended: true,
+			phase: 2
 		},
 		{
 			name: "High Warlord's Crossbow",
@@ -56,7 +59,8 @@ export class WeaponService {
 			dmgMin: 107,
 			dmgMax: 162,
 			speed: 2.9,
-			recommended: true
+			recommended: true,
+			phase: 2
 
 		},
 		{
@@ -67,7 +71,8 @@ export class WeaponService {
 			dmgMin: 103,
 			dmgMax: 192,
 			speed: 3.0,
-			recommended: true
+			recommended: true,
+			phase: 5
 		},
 		{
 			name: 'Soulstring',
@@ -77,7 +82,8 @@ export class WeaponService {
 			dmgMin: 123,
 			dmgMax: 229,
 			speed: 2.9,
-			recommended: true
+			recommended: true,
+			phase: 6
 		},
 		{
 			name: 'Crossbow of Imminent Doom',
@@ -87,7 +93,8 @@ export class WeaponService {
 			dmgMin: 103,
 			dmgMax: 155,
 			speed: 3.1,
-			recommended: false
+			recommended: false,
+			phase: 5
 		},
 		{
 			name: 'Polished Ironwood Crossbow',
@@ -97,7 +104,8 @@ export class WeaponService {
 			dmgMin: 101,
 			dmgMax: 153,
 			speed: 3.1,
-			recommended: false
+			recommended: false,
+			phase: 4
 		},
 		{
 			name: "Fahrad's Reloading Repeater",
@@ -107,7 +115,8 @@ export class WeaponService {
 			dmgMin: 85,
 			dmgMax: 128,
 			speed: 3.2,
-			recommended: true
+			recommended: true,
+			phase: 5
 		},
 		{
 			name: "Rhok'delar, Longbow of the Ancient Keepers",
@@ -117,7 +126,8 @@ export class WeaponService {
 			dmgMin: 89,
 			dmgMax: 166,
 			speed: 2.9,
-			recommended: true
+			recommended: true,
+			phase: 1
 		},
 		{
 			name: "Huhuran's Stinger",
@@ -127,7 +137,8 @@ export class WeaponService {
 			dmgMin: 87,
 			dmgMax: 163,
 			speed: 2.7,
-			recommended: false
+			recommended: false,
+			phase: 5
 		},
 		{
 			name: "Malgen's Long Bow",
@@ -137,7 +148,8 @@ export class WeaponService {
 			dmgMin: 63,
 			dmgMax: 118,
 			speed: 2.9,
-			recommended: false
+			recommended: false,
+			phase: 5
 		},
 		{
 			name: "Hoodoo Hunting Bow",
@@ -147,7 +159,8 @@ export class WeaponService {
 			dmgMin: 68,
 			dmgMax: 128,
 			speed: 2.8,
-			recommended: false
+			recommended: false,
+			phase: 4
 		},
 		{
 			name: "The Purifier",
@@ -157,7 +170,8 @@ export class WeaponService {
 			dmgMin: 71,
 			dmgMax: 132,
 			speed: 3.0,
-			recommended: false
+			recommended: false,
+			phase: 6
 		},
 		{
 			name: "Carapace Spine Crossbow",
@@ -167,7 +181,8 @@ export class WeaponService {
 			dmgMin: 82,
 			dmgMax: 124,
 			speed: 3.3,
-			recommended: true
+			recommended: true,
+			phase: 1
 		},
 		{
 			name: "Steelarrow Crossbow",
@@ -177,7 +192,8 @@ export class WeaponService {
 			dmgMin: 29,
 			dmgMax: 45,
 			speed: 3.4,
-			recommended: false
+			recommended: false,
+			phase: 1
 		},
 		{
 			name: "Satyr's Bow",
@@ -187,7 +203,8 @@ export class WeaponService {
 			dmgMin: 50,
 			dmgMax: 93,
 			speed: 2.4,
-			recommended: false
+			recommended: false,
+			phase: 2
 		},
 		{
 			name: "Blackcrow",
@@ -197,7 +214,8 @@ export class WeaponService {
 			dmgMin: 77,
 			dmgMax: 117,
 			speed: 3.2,
-			recommended: true
+			recommended: true,
+			phase: 1
 		},
 		{
 			name: "Verdant Keeper's Aim",
@@ -207,7 +225,8 @@ export class WeaponService {
 			dmgMin: 53,
 			dmgMax: 100,
 			speed: 2.8,
-			recommended: false
+			recommended: false,
+			phase: 1
 		},
 		{
 			name: "Dwarven Hand Cannon",
@@ -217,7 +236,8 @@ export class WeaponService {
 			dmgMin: 66,
 			dmgMax: 124,
 			speed: 2.9,
-			recommended: true
+			recommended: true,
+			phase: 1
 		},
 		{
 			name: "Hurricane",
@@ -227,7 +247,8 @@ export class WeaponService {
 			dmgMin: 34,
 			dmgMax: 63,
 			speed: 1.6,
-			recommended: false
+			recommended: false,
+			phase: 1
 		},
 		{
 			name: "Striker's Mark",
@@ -237,7 +258,8 @@ export class WeaponService {
 			dmgMin: 69,
 			dmgMax: 129,
 			speed: 2.5,
-			recommended: false
+			recommended: false,
+			phase: 1
 		},
 		{
 			name: "Core Marksman Rifle",
@@ -247,7 +269,8 @@ export class WeaponService {
 			dmgMin: 64,
 			dmgMax: 120,
 			speed: 2.5,
-			recommended: false
+			recommended: false,
+			phase: 1
 		},
 		{
 			name: "Dragonbreath Hand Cannon",
@@ -257,7 +280,8 @@ export class WeaponService {
 			dmgMin: 86,
 			dmgMax: 160,
 			speed: 2.8,
-			recommended: true
+			recommended: true,
+			phase: 3
 		},
 		{
 			name: "Heartstriker",
@@ -267,7 +291,8 @@ export class WeaponService {
 			dmgMin: 80,
 			dmgMax: 149,
 			speed: 2.6,
-			recommended: false
+			recommended: false,
+			phase: 3
 		},
 		{
 			name: "Blastershot Launcher",
@@ -277,7 +302,8 @@ export class WeaponService {
 			dmgMin: 73,
 			dmgMax: 136,
 			speed: 2.6,
-			recommended: false
+			recommended: false,
+			phase: 1
 		}
 	]
 
