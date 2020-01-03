@@ -148,8 +148,6 @@ export class BaseStatsComponent implements OnInit {
 				talent.currentRank = this.gs;
 			}
 		}
-
-		//setInterval(() => this.saveToLocalStorage(), 1100);
 	}
 
 	increaseTalent(talent) {

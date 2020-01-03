@@ -37,3 +37,23 @@ h2 {
 		padding: 0px $spacing;
 	}
 }
+
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: darken($color-background, 2%);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: lighten($color-background, 4%);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: lighten($color-background, 8%);
+}

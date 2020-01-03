@@ -1,131 +1,44 @@
-<div class="character-setup" [class.collapsed]="collapsed">
-	<div [hidden]="collapsed">
-		<div class="full-view" fxLayout="column">
-			<div class="header" style="background-color: #114223;" fxLayout="row">
-				<div fxFLex="<grow>">
-					<h2>Character setup</h2>
-				</div>
-				<div fxFlex style="text-align: right;">
-					<button (click)="toggleCollapsed()" type="button" mat-icon-button>
-						<mat-icon>fullscreen_exit</mat-icon>
-					</button>
-				</div>
+<div class="character-setup" >
+	<div class="full-view view" fxLayout="column" *ngIf="!collapsed">
+		<div class="header" style="background-color: #114223;" fxLayout="row">
+			<div fxFLex="<grow>">
+				<h2>Character setup</h2>
 			</div>
-			<div>
-				<div fxLayout="row">
-					<div class="talent-container" style="text-align: center;" *ngFor="let talent of talents">
-						<div [class.maxed]="talent.currentRank == talent.ranks" class="talent-tile" (click)="toggleMaxTalent(talent)">
-							<img [style.opacity]="((talent.currentRank / talent.ranks) / 2 ) + .5" *ngIf="talent.icon" [src]="talent.icon" />
-							<div class="talent-number-indicator">
-								<span>{{talent.currentRank}}</span>
-							</div>
-							<div class="tooltip">
-								<p>{{talent.name}}</p>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div fxFlex style="text-align: right;">
+				<button (click)="toggleCollapsed()" type="button" mat-icon-button>
+					<mat-icon>fullscreen_exit</mat-icon>
+				</button>
 			</div>
-
-			<div style="width: 100%;">
-				<div class="column left">
-					<h2>Character sheet</h2>
-					<div class="selected-weapon" [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'" *ngIf="selectedWeapon">
-						<span class="weapon-link" (click)="toggleWeaponOverlay();" [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'">{{selectedWeapon.name}}</span>
-						<div style="padding-top: 8px;">
-							<img class="weapon-image" [src]="selectedWeapon.icon" />
-							<div class="weapon-text" style="width: 200px;">
-								<span class="type-text">{{selectedWeapon.type}}</span><br />
-								<span class="stats">{{selectedWeapon.speed}}s / {{selectedWeapon.dmgMin}} - {{selectedWeapon.dmgMax}}</span>
-							</div>
-						</div>
-					</div>
-					<div style="position: relative;">
-						<div class="weapon-overlay" *ngIf="displayWeaponOverlay">
-							<button type="button" style="position: absolute; top: 8px; right: 8px;" (click)="toggleWeaponOverlay();" mat-icon-button>
-								<mat-icon>close</mat-icon>
-							</button>
-							<div *ngIf="weapons">
-								<mat-form-field style="width: 200px;">
-									<input matInput placeholder="Filter (by name)" aria-label="weapon" [formControl]="weaponControl">
-								</mat-form-field>
-							</div>
-							<div class="inner">
-								<div class="weapon-container" [class.epic]="weapon.quality == 'epic'" [class.rare]="weapon.quality == 'rare'" [class.uncommon]="weapon.quality == 'uncommon'" (click)="setSelectedWeapon(weapon);" [hidden]="rcomWeapons == true && weapon.recommended == false || phase < weapon.phase" *ngFor="let weapon of filteredWeapons | async">
-									<img class="weapon-image" [src]="weapon.icon" />
-									<div class="weapon-text">
-										{{weapon.name}}<br />
-										<span class="stats">{{weapon.speed}}s / {{weapon.dmgMin}} - {{weapon.dmgMax}}</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<br />
-					<mat-form-field style="width: 90px; margin-right: 16px;">
-						<input matInput placeholder="Attack power" [(ngModel)]="baseAP">
-					</mat-form-field>
-					<mat-form-field style="width: 90px; margin-right: 16px;">
-						<input matInput placeholder="Critical strike (%)" [(ngModel)]="criticalStrikeChance">
-					</mat-form-field>
-					<mat-form-field style="width: 90px; margin-right: 16px;">
-						<input matInput placeholder="Ammo dps" [(ngModel)]="ammo">
-					</mat-form-field>
-					<mat-form-field style="width: 90px;">
-						<input matInput placeholder="Scope damage" [(ngModel)]="rangedScope">
-					</mat-form-field>
-					<hr />
-					<p>Agility converter</p>
-					<mat-form-field style="width: 40px;">
-						<input matInput placeholder="Agility" [(ngModel)]="agility">
-					</mat-form-field>
-					equals <strong>{{agility*2}}</strong> AP and <strong>{{agility/53 | number:'1.1-4'}}</strong>% critical strike
-					<br />
-					<button style="margin: 16px 0px;" type="button" (click)="addAgility()" mat-raised-button color="primary">Add {{agility}} agility</button>
-				</div>
-
-				<calculated-table class="column right"
-					[selectedWeapon]="selectedWeapon"
-					[slaying]="slaying" 
-					[rws]="rws" 
-					[mortal]="mortal" 
-					[barrage]="barrage" 
-					[gs]="gs" 
-					[baseAP]="baseAP"
-					[criticalStrikeChance]="criticalStrikeChance" 
-					[rangedScope]="rangedScope" 
-					[ammo]="ammo">
-				</calculated-table>
-			</div>
-
 		</div>
-	</div>
-
-
-	<div [hidden]="!collapsed" style="max-width: 400px; min-width: 340px;">
-		<div class="compact-view" fxLayout="column">
-			<div class="header" style="background-color: #114223;" fxLayout="row">
-				<div fxFLex="<grow>">
-					<h2>Character setup</h2>
-				</div>
-				<div fxFlex style="text-align: right;">
-					<button (click)="toggleCollapsed()" type="button" mat-icon-button>
-						<mat-icon>fullscreen</mat-icon>
-					</button>
-				</div>
-			</div>
-			<div fxFlex style="white-space: nowrap; text-align: center;">
-				<div class="talent-container" *ngFor="let talent of talents" style="display: inline-block;">
+		<div>
+			<div fxLayout="row">
+				<div class="talent-container" style="text-align: center;" *ngFor="let talent of talents">
 					<div [class.maxed]="talent.currentRank == talent.ranks" class="talent-tile" (click)="toggleMaxTalent(talent)">
 						<img [style.opacity]="((talent.currentRank / talent.ranks) / 2 ) + .5" *ngIf="talent.icon" [src]="talent.icon" />
 						<div class="talent-number-indicator">
 							<span>{{talent.currentRank}}</span>
 						</div>
+						<div class="tooltip">
+							<p>{{talent.name}}</p>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div fxFlex style="white-space: nowrap;">
-				<p [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'" class="weapon-link" (click)="toggleWeaponOverlay()">{{selectedWeapon.name}}</p>
+		</div>
+
+		<div style="width: 100%;">
+			<div class="column left">
+				<h2>Character sheet</h2>
+				<div class="selected-weapon" [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'" *ngIf="selectedWeapon">
+					<span class="weapon-link" (click)="toggleWeaponOverlay();" [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'">{{selectedWeapon.name}}</span>
+					<div style="padding-top: 8px;">
+						<img class="weapon-image" [src]="selectedWeapon.icon" />
+						<div class="weapon-text" style="width: 200px;">
+							<span class="type-text">{{selectedWeapon.type}}</span><br />
+							<span class="stats">{{selectedWeapon.speed}}s / {{selectedWeapon.dmgMin}} - {{selectedWeapon.dmgMax}}</span>
+						</div>
+					</div>
+				</div>
 				<div style="position: relative;">
 					<div class="weapon-overlay" *ngIf="displayWeaponOverlay">
 						<button type="button" style="position: absolute; top: 8px; right: 8px;" (click)="toggleWeaponOverlay();" mat-icon-button>
@@ -133,7 +46,7 @@
 						</button>
 						<div *ngIf="weapons">
 							<mat-form-field style="width: 200px;">
-								<input matInput placeholder="Filter (by name)" aria-label="weapon" autofocus [formControl]="weaponControl">
+								<input matInput placeholder="Filter (by name)" aria-label="weapon" [formControl]="weaponControl">
 							</mat-form-field>
 						</div>
 						<div class="inner">
@@ -147,33 +60,116 @@
 						</div>
 					</div>
 				</div>
-				<mat-form-field class="stat-input">
-					<input matInput placeholder="AP" [(ngModel)]="baseAP">
+				<br />
+				<mat-form-field style="width: 80px; margin-right: 16px;">
+					<input (blur)="saveToLocalStorage()" matInput placeholder="Attack power" [(ngModel)]="baseAP">
 				</mat-form-field>
-				<mat-form-field class="stat-input">
-					<input matInput placeholder="Crit (%)" [(ngModel)]="criticalStrikeChance">
+				<mat-form-field style="width: 80px; margin-right: 16px;">
+					<input (blur)="saveToLocalStorage()" matInput placeholder="Critical (%)" [(ngModel)]="criticalStrikeChance">
 				</mat-form-field>
-				<mat-form-field class="stat-input small">
-					<input matInput placeholder="Ammo" [(ngModel)]="ammo">
+				<mat-form-field style="width: 70px; margin-right: 16px;">
+					<input (blur)="saveToLocalStorage()" matInput placeholder="Ammo dps" [(ngModel)]="ammo">
 				</mat-form-field>
-				<mat-form-field class="stat-input small" style="margin-right: 0px;">
-					<input matInput placeholder="Scope" [(ngModel)]="rangedScope">
+				<mat-form-field style="width: 70px;">
+					<input (blur)="saveToLocalStorage()" matInput placeholder="Scope dmg" [(ngModel)]="rangedScope">
 				</mat-form-field>
+				<hr />
+				<p>Agility converter</p>
+				<mat-form-field style="width: 40px;">
+					<input matInput placeholder="Agility" [(ngModel)]="agility">
+				</mat-form-field>
+				= <strong>{{agility*2}}</strong> AP and <strong>{{agility/53 | number:'1.1-4'}}</strong>% critical strike
+				<br />
+				<button type="button" (click)="addAgility()" mat-raised-button color="primary">Add {{agility}} agility</button>
 			</div>
-			<div fxFlex>
-				<calculated-table-collapsed 
-					[selectedWeapon]="selectedWeapon"
-					[slaying]="slaying" 
-					[rws]="rws" 
-					[mortal]="mortal" 
-					[barrage]="barrage" 
-					[gs]="gs" 
-					[baseAP]="baseAP"
-					[criticalStrikeChance]="criticalStrikeChance" 
-					[rangedScope]="rangedScope" 
-					[ammo]="ammo">
-				</calculated-table-collapsed>
+
+			<calculated-table class="column right"
+				[selectedWeapon]="selectedWeapon"
+				[slaying]="slaying" 
+				[rws]="rws" 
+				[mortal]="mortal" 
+				[barrage]="barrage" 
+				[gs]="gs" 
+				[baseAP]="baseAP"
+				[criticalStrikeChance]="criticalStrikeChance" 
+				[rangedScope]="rangedScope" 
+				[ammo]="ammo">
+			</calculated-table>
+		</div>
+
+	</div>
+
+
+	<div class="compact-view view" fxLayout="column" *ngIf="collapsed" style="max-width: 384px; min-width: 300px;">
+		<div class="header" style="background-color: #114223;" fxLayout="row">
+			<div fxFLex="<grow>">
+				<h2>Character setup</h2>
 			</div>
+			<div fxFlex style="text-align: right;">
+				<button (click)="toggleCollapsed()" type="button" mat-icon-button>
+					<mat-icon>fullscreen</mat-icon>
+				</button>
+			</div>
+		</div>
+		<div fxFlex style="white-space: nowrap; text-align: center;">
+			<div class="talent-container" *ngFor="let talent of talents" style="display: inline-block;">
+				<div [class.maxed]="talent.currentRank == talent.ranks" class="talent-tile" (click)="toggleMaxTalent(talent)">
+					<img [style.opacity]="((talent.currentRank / talent.ranks) / 2 ) + .5" *ngIf="talent.icon" [src]="talent.icon" />
+					<div class="talent-number-indicator">
+						<span>{{talent.currentRank}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div fxFlex style="white-space: nowrap;">
+			<p [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'" class="weapon-link" (click)="toggleWeaponOverlay()">{{selectedWeapon.name}}</p>
+			<div style="position: relative;">
+				<div class="weapon-overlay" *ngIf="displayWeaponOverlay">
+					<button type="button" style="position: absolute; top: 8px; right: 8px;" (click)="toggleWeaponOverlay();" mat-icon-button>
+						<mat-icon>close</mat-icon>
+					</button>
+					<div *ngIf="weapons">
+						<mat-form-field style="width: 200px;">
+							<input matInput placeholder="Filter (by name)" aria-label="weapon" autofocus [formControl]="weaponControl">
+						</mat-form-field>
+					</div>
+					<div class="inner">
+						<div class="weapon-container" [class.epic]="weapon.quality == 'epic'" [class.rare]="weapon.quality == 'rare'" [class.uncommon]="weapon.quality == 'uncommon'" (click)="setSelectedWeapon(weapon);" [hidden]="rcomWeapons == true && weapon.recommended == false || phase < weapon.phase" *ngFor="let weapon of filteredWeapons | async">
+							<img class="weapon-image" [src]="weapon.icon" />
+							<div class="weapon-text">
+								{{weapon.name}}<br />
+								<span class="stats">{{weapon.speed}}s / {{weapon.dmgMin}} - {{weapon.dmgMax}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<mat-form-field class="stat-input">
+				<input (blur)="saveToLocalStorage()" matInput placeholder="AP" [(ngModel)]="baseAP">
+			</mat-form-field>
+			<mat-form-field class="stat-input">
+				<input (blur)="saveToLocalStorage()" matInput placeholder="Crit (%)" [(ngModel)]="criticalStrikeChance">
+			</mat-form-field>
+			<mat-form-field class="stat-input small">
+				<input (blur)="saveToLocalStorage()" matInput placeholder="Ammo" [(ngModel)]="ammo">
+			</mat-form-field>
+			<mat-form-field class="stat-input small" style="margin-right: 0px;">
+				<input (blur)="saveToLocalStorage()" matInput placeholder="Scope" [(ngModel)]="rangedScope">
+			</mat-form-field>
+		</div>
+		<div fxFlex>
+			<calculated-table-collapsed 
+				[selectedWeapon]="selectedWeapon"
+				[slaying]="slaying" 
+				[rws]="rws" 
+				[mortal]="mortal" 
+				[barrage]="barrage" 
+				[gs]="gs" 
+				[baseAP]="baseAP"
+				[criticalStrikeChance]="criticalStrikeChance" 
+				[rangedScope]="rangedScope" 
+				[ammo]="ammo">
+			</calculated-table-collapsed>
 		</div>
 	</div>
 </div>
