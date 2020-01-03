@@ -78,9 +78,9 @@
 				<mat-form-field style="width: 40px;">
 					<input matInput placeholder="Agility" [(ngModel)]="agility">
 				</mat-form-field>
-				equals <strong>{{agility*2}}</strong> AP and <strong>{{agility/53 | number:'1.1-4'}}</strong>% critical strike
+				= <strong>{{agility*2}}</strong> AP, <strong>{{agility/53 | number:'1.1-4'}}</strong>% critical strike
 				<br />
-				<button style="margin: 16px 0px;" type="button" (click)="addAgility()" mat-raised-button color="primary">Add {{agility}} agility</button>
+				<button type="button" (click)="addAgility()" mat-raised-button color="primary">Add {{agility}} agility</button>
 			</div>
 
 			<calculated-table class="column right"
