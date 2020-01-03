@@ -31,11 +31,6 @@
 	border-radius: 4px;
 	box-shadow: inset 0px 2px 5px rgba(0,0,0,.8);
 
-	.talent-tile {
-		max-width: 35px;
-		max-height: 35px;
-	}
-
 	&.new-view {
 		transition: all .4s ease;
 		opacity: .4;
@@ -143,8 +138,15 @@ a {
 }
 
 .talent-container {
-	padding-bottom: $spacing/4;
-	padding-top: $spacing;
+	padding: $spacing $spacing/2 $spacing/2 $spacing/2;
+}
+
+.talent-container:first-child {
+	padding-left: 0px;
+}
+
+.talent-container:last-child {
+	padding-right: 0px;
 }
 
 .talent-tile {
@@ -362,18 +364,12 @@ a {
 }
 
 @media only screen and (max-width: 478px) {
-	.talent-container {
-		padding: $spacing/2;
-		padding-bottom: $spacing/4;
-		padding-top: $spacing;
-	}
 
-	.talent-container:first-child {
-		padding-left: 0px;
-	}
+	.character-setup {
 
-	.talent-container:last-child {
-		padding-right: 0px;
+		&.collapsed {
+			max-width: 420px;
+		}
 	}
 }
 
