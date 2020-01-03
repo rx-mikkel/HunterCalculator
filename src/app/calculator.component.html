@@ -11,8 +11,8 @@
 			</div>
 		</div>
 		<div>
-			<div fxLayout="row">
-				<div fxFlex class="talent-container" style="text-align: center;" *ngFor="let talent of talents">
+			<div fxLayout="row" class="talents">
+				<div class="talent-container" *ngFor="let talent of talents">
 					<div [class.maxed]="talent.currentRank == talent.ranks" class="talent-tile" (click)="toggleMaxTalent(talent)">
 						<img [style.opacity]="((talent.currentRank / talent.ranks) / 2 ) + .5" *ngIf="talent.icon" [src]="talent.icon" />
 						<div class="talent-number-indicator">
@@ -99,7 +99,7 @@
 
 	</div>
 
-	<div class="compact-view view" fxLayout="column" *ngIf="collapsed" style="max-width: 400px; min-width: 300px;">
+	<div class="compact-view view" fxLayout="column" *ngIf="collapsed">
 		<div class="header" fxLayout="row">
 			<div fxFLex="<grow>">
 				<h2>Alternative setup</h2>
@@ -110,7 +110,7 @@
 				</button>
 			</div>
 		</div>
-		<div fxFlex style="white-space: nowrap; text-align: center;">
+		<div fxLayout="row" class="talents">
 			<div class="talent-container" *ngFor="let talent of talents" style="display: inline-block;">
 				<div [class.maxed]="talent.currentRank == talent.ranks" class="talent-tile" (click)="toggleMaxTalent(talent)">
 					<img [style.opacity]="((talent.currentRank / talent.ranks) / 2 ) + .5" *ngIf="talent.icon" [src]="talent.icon" />
@@ -121,7 +121,9 @@
 			</div>
 		</div>
 		<div fxFlex style="white-space: nowrap;">
-			<p [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'" class="weapon-link" (click)="toggleWeaponOverlay()">{{selectedWeapon.name}}</p>
+			<div class="selected-weapon" [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'" *ngIf="selectedWeapon">
+				<span class="weapon-link" (click)="toggleWeaponOverlay();" [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'">{{selectedWeapon.name}}</span>
+			</div>
 			<div style="position: relative;">
 				<div class="weapon-overlay" *ngIf="displayWeaponOverlay">
 					<button type="button" style="position: absolute; top: 8px; right: 8px;" (click)="toggleWeaponOverlay();" mat-icon-button>

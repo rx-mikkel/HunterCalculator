@@ -1,6 +1,6 @@
 <div fxFlexFill fxLayout="column">
 	<div fxFlex="<grow>" fxFlexFill>
-		<div style="max-width: 1600px;">
+		<div style="max-width: 1616px;">
 			<div class="introduction">
 				<h1>Hunter damage calculator</h1>
 				<p>Does 8 agility beat 20 attack power given your current stats? If you want a more in-depth <a href="https://youtu.be/QyCUqLvgBpc">introduction</a> watch the video</p>
@@ -30,7 +30,7 @@
 				<calculator [phase]="selectedPhase" [rcomWeapons]="recommendedWeapons" *ngFor="let component of compareComponents"></calculator>
 
 
-				<div class="character-setup" style="max-width: 400px; min-width: 316px; width: 100%; position: relative; display: inline-block;" (click)="addCompareCalculator();">
+				<div class="character-setup" style="max-width: 320px; min-width: 316px; width: 100%; position: relative; display: inline-block;" (click)="addCompareCalculator();">
 					<button style="pointer-events: none; position: absolute; top: 50%; left: 50%; z-index: 127; transform: translate(-50%, 0px);" mat-raised-button color="primary">
 						Compare
 					</button>
@@ -42,7 +42,7 @@
 							<div fxFlex style="text-align: right;">
 							</div>
 						</div>
-						<div fxFlex style="white-space: nowrap; text-align: center;">
+						<div fxLayout="row" class="talents">
 							<div class="talent-container" *ngFor="let talent of talents" style="display: inline-block;">
 								<div [class.maxed]="talent.currentRank == talent.ranks" class="talent-tile">
 									<img [style.opacity]="((talent.currentRank / talent.ranks) / 2 ) + .5" *ngIf="talent.icon" [src]="talent.icon" />
