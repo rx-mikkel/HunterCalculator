@@ -30,7 +30,7 @@
 				<calculator [phase]="selectedPhase" [rcomWeapons]="recommendedWeapons" *ngFor="let component of compareComponents"></calculator>
 
 
-				<div class="character-setup" style="max-width: 320px; min-width: 316px; width: 100%; position: relative; display: inline-block;" (click)="addCompareCalculator();">
+				<div class="character-setup collapsed" (click)="addCompareCalculator();">
 					<button style="pointer-events: none; position: absolute; top: 50%; left: 50%; z-index: 127; transform: translate(-50%, 0px);" mat-raised-button color="primary">
 						Compare
 					</button>
@@ -54,19 +54,6 @@
 						</div>
 						<div fxFlex style="white-space: nowrap;">
 							<p [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'" class="weapon-link">{{selectedWeapon.name}}</p>
-
-							<mat-form-field class="stat-input">
-								<input matInput placeholder="AP">
-							</mat-form-field>
-							<mat-form-field class="stat-input">
-								<input matInput placeholder="Crit (%)">
-							</mat-form-field>
-							<mat-form-field class="stat-input">
-								<input matInput placeholder="Ammo">
-							</mat-form-field>
-							<mat-form-field class="stat-input" style="margin-right: 0px;">
-								<input matInput placeholder="Scope">
-							</mat-form-field>
 						</div>
 					</div>
 				</div>
@@ -75,6 +62,7 @@
 
 			<div class="introduction">
 				<p>Credits to Lactose for the work he has done on the <a href="https://forum.elysium-project.org/topic/31461-hunter-damage-cycles-breakdown-ej-repost/" target="_blank">formulae and shot rotations</a></p>
+				<p>Source on <a href="https://github.com/rx-mikkel/HunterCalculator" target="_blank">GitHub</a></p>
 			</div>
 		</div>
 	</div>
@@ -82,10 +70,6 @@
 
 <!--
 
--tooltips for talents
-
 -pwa icons
--single talent points add/remove
 
-more weapons
 -->
