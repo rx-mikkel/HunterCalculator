@@ -304,6 +304,39 @@ export class WeaponService {
 			speed: 2.6,
 			recommended: false,
 			phase: 1
+		},
+		{
+			name: "Outrunner's Bow / Outrider's bow",
+			icon: '../assets/build/images/bow.jpg',
+			type: 'Bow',
+			quality: 'rare',
+			dmgMin: 54,
+			dmgMax: 101,
+			speed: 2.4,
+			recommended: false,
+			phase: 3
+		},
+		{
+			name: "Mandokir's Sting",
+			icon: '../assets/build/images/mandokir.jpg',
+			type: 'Bow',
+			quality: 'epic',
+			dmgMin: 68,
+			dmgMax: 127,
+			speed: 2.6,
+			recommended: false,
+			phase: 4
+		},
+		{
+			name: "Gurubashi Dwarf Destroyer",
+			icon: '../assets/build/images/rifle10.jpg',
+			type: 'Gun',
+			quality: 'epic',
+			dmgMin: 76,
+			dmgMax: 142,
+			speed: 2.8,
+			recommended: true,
+			phase: 4
 		}
 	]
 
