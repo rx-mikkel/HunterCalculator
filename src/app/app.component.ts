@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { WeaponService }      from './weapon.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
@@ -15,7 +13,7 @@ export class AppComponent implements OnInit {
 	compareComponents: any = [];
 
 	phases: any = [3,4,5,6];
-	selectedPhase: number = 3;
+	selectedPhase: number = 4;
 	recommendedWeapons: boolean = false;
 
 	selectedWeapon: any = {
@@ -26,7 +24,7 @@ export class AppComponent implements OnInit {
 		dmgMin: 124,
 		dmgMax: 186,
 		speed: 3.4
-	}
+	};
 
 	talents = [
 		{
