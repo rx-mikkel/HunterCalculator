@@ -12,8 +12,8 @@ export class AppComponent implements OnInit {
 
 	compareComponents: any = [];
 
-	phases: any = [3,4,5,6];
-	selectedPhase: number = 4;
+	phases: any = [4,5,6];
+	selectedPhase: number = 5;
 	recommendedWeapons: boolean = false;
 
 	selectedWeapon: any = {
