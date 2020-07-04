@@ -23,6 +23,7 @@ export class CalculatorComponent implements OnInit {
 
 	@Input() phase: number;
 	@Input() rcomWeapons: boolean;
+	@Input() baseComponent: boolean;
 
 	weaponControl: FormControl;
 	filteredWeapons: any;
@@ -96,6 +97,7 @@ export class CalculatorComponent implements OnInit {
 	compareComponents: any = [];
 
 	ngOnInit() {
+		this.collapsed = !this.baseComponent;
 		if(localStorage['baseAP']) {
 			this.baseAP = localStorage['baseAP'];
 		}

@@ -12,6 +12,10 @@
 	&.collapsed {
 		max-width: 320px;
 	}
+
+	.baseComponent {
+		background-color: #114223;
+	}
 }
 
 .view {
@@ -51,8 +55,7 @@
 	}
 
 	.selected-weapon {
-		width: 280px;
-		padding: $spacing 0px;
+		padding: $spacing/2 0px;
 	}
 }
 
@@ -81,7 +84,7 @@
 .weapon-link {
 	text-decoration: underline;
 	color: $color-primary;
-	cursor: pointer;
+	font-size: 15px;
 }
 
 .introduction {
@@ -224,6 +227,20 @@ a {
 
 	&.epic:hover {
 		background-color: rgba(163, 53, 238, .15);
+	}
+
+	&.rare:hover {
+		background-color: rgba(0, 112, 221, .11);
+	}
+
+	&.uncommon:hover {
+		background-color: rgba(30, 255, 0, .04);
+	}
+}
+
+.weapon-container, .selected-weapon {
+
+	&.epic:hover {
 
 		.weapon-image {
 			box-shadow: 0px 0px 11px $color-epic;
@@ -231,7 +248,6 @@ a {
 	}
 
 	&.rare:hover {
-		background-color: rgba(0, 112, 221, .11);
 
 		.weapon-image {
 			box-shadow: 0px 0px 11px $color-rare;
@@ -239,7 +255,6 @@ a {
 	}
 
 	&.uncommon:hover {
-		background-color: rgba(30, 255, 0, .04);
 
 		.weapon-image {
 			box-shadow: 0px 0px 11px $color-uncommon;
@@ -251,11 +266,17 @@ a {
 	.weapon-image {
 		border-color: $color-epic;
 	}
+	.weapon-link {
+		color: $color-epic;
+	}
 }
 
 .rare {
 	.weapon-image {
 		border-color: $color-rare;
+	}
+	.weapon-link {
+		color: $color-rare;
 	}
 }
 
@@ -263,11 +284,14 @@ a {
 	.weapon-image {
 		border-color: $color-uncommon;
 	}
+	.weapon-link {
+		color: $color-uncommon;
+	}
 }
 
 .weapon-image {
-	width: 46px;
-	height: 46px;
+	width: 52px;
+	height: 52px;
 	border: 2px solid #666;
 	vertical-align: middle;
 	transition: all .2s ease;
@@ -279,7 +303,7 @@ a {
 	vertical-align: middle; 
 	padding-left: 8px;
 	white-space: nowrap; 
-    width: 200px; 
+    width: 220px; 
     overflow: hidden;
     text-overflow: ellipsis; 
 
@@ -291,7 +315,7 @@ a {
 
 .type-text {
 	color: $color-primary;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .discrete {
@@ -305,24 +329,28 @@ a {
 	left: 0px;
 	width: 320px;
 	background-color: $color-background;
-	padding: $spacing;
+	padding: $spacing/2;
 	z-index: 128;
 	border-radius: 8px;
 	box-shadow: 0px 2px 10px rgba(0,0,0,.8);
+
+	.weapon-text {
+		width: 200px;
+	}
 
 	.inner {
 		padding: $spacing/4 0px;
 		overflow: auto;
 		max-height: 400px;
+		margin-top: -8px;
 		box-shadow: inset 0px 2px 10px rgba(0,0,0,.8);
 	}
 }
 
 .selected-weapon {
-	white-space: nowrap; 
-	width: 240px; 
-	text-overflow: ellipsis; 
-	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	cursor: pointer;
 }
 
 .result {
@@ -374,6 +402,9 @@ a {
 }
 
 @media only screen and (max-width: 600px) {
+	.selected-weapon {
+		width: 100%;
+	}
 	.column {
 		width: 100%;
 		&.right {

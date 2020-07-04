@@ -24,13 +24,14 @@
 			</div>
 
 			<div class="content">
+				<!--
+					<base-stats [phase]="selectedPhase" [rcomWeapons]="recommendedWeapons"></base-stats>
+				-->
 
-				<base-stats [phase]="selectedPhase" [rcomWeapons]="recommendedWeapons"></base-stats>
-
-				<calculator [phase]="selectedPhase" [rcomWeapons]="recommendedWeapons" *ngFor="let component of compareComponents"></calculator>
+				<calculator [baseComponent]="component.base" [phase]="selectedPhase" [rcomWeapons]="recommendedWeapons" *ngFor="let component of compareComponents"></calculator>
 
 
-				<div class="character-setup collapsed" (click)="addCompareCalculator();">
+				<div class="character-setup collapsed" (click)="addCompareCalculator(false);">
 					<button style="pointer-events: none; position: absolute; top: 50%; left: 50%; z-index: 127; transform: translate(-50%, 0px);" mat-raised-button color="primary">
 						Compare
 					</button>

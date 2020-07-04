@@ -1,8 +1,9 @@
 <div class="character-setup" [class.collapsed]="collapsed">
 	<div class="full-view view" fxLayout="column" *ngIf="!collapsed">
-		<div class="header" fxLayout="row">
+		<div class="header" [class.baseComponent]="baseComponent" fxLayout="row">
 			<div fxFLex="<grow>">
-				<h2>Alternative setup</h2>
+				<h2 *ngIf="baseComponent == true">Character setup</h2>
+				<h2 *ngIf="baseComponent == false">Alternative setup</h2>
 			</div>
 			<div fxFlex style="text-align: right;">
 				<button (click)="toggleCollapsed()" type="button" mat-icon-button>
@@ -29,23 +30,21 @@
 		<div style="width: 100%;">
 			<div class="column left">
 				<h2>Character sheet</h2>
-				<div class="selected-weapon" [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'" *ngIf="selectedWeapon">
-					<span class="weapon-link" (click)="toggleWeaponOverlay();" [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'">{{selectedWeapon.name}}</span>
-					<div style="padding-top: 8px;">
-						<img class="weapon-image" [src]="selectedWeapon.icon" />
-						<div class="weapon-text" style="width: 200px;">
-							<span class="type-text">{{selectedWeapon.type}}</span><br />
-							<span class="stats">{{selectedWeapon.speed}}s / {{selectedWeapon.dmgMin}} - {{selectedWeapon.dmgMax}}</span>
-						</div>
+				<div class="selected-weapon" (click)="toggleWeaponOverlay();" [class.epic]="selectedWeapon.quality == 'epic'" [class.rare]="selectedWeapon.quality == 'rare'" [class.uncommon]="selectedWeapon.quality == 'uncommon'" *ngIf="selectedWeapon">
+					<img class="weapon-image" [src]="selectedWeapon.icon" />
+					<div class="weapon-text">
+						<span class="weapon-link">{{selectedWeapon.name}}</span><br>
+						<span class="type-text">{{selectedWeapon.type}}</span><br>
+						<span class="stats">{{selectedWeapon.speed}}s / {{selectedWeapon.dmgMin}} - {{selectedWeapon.dmgMax}}</span>
 					</div>
 				</div>
 				<div style="position: relative;">
 					<div class="weapon-overlay" *ngIf="displayWeaponOverlay">
-						<button type="button" style="position: absolute; top: 8px; right: 8px;" (click)="toggleWeaponOverlay();" mat-icon-button>
+						<button type="button" style="position: absolute; top: 4px; right: 4px;" (click)="toggleWeaponOverlay();" mat-icon-button>
 							<mat-icon>close</mat-icon>
 						</button>
 						<div *ngIf="weapons">
-							<mat-form-field style="width: 200px;">
+							<mat-form-field style="width: 220px;">
 								<input matInput placeholder="Filter (by name)" aria-label="weapon" autofocus [formControl]="weaponControl">
 							</mat-form-field>
 						</div>
@@ -102,7 +101,8 @@
 	<div class="compact-view view" fxLayout="column" *ngIf="collapsed">
 		<div class="header" fxLayout="row">
 			<div fxFLex="<grow>">
-				<h2>Alternative setup</h2>
+				<h2 *ngIf="baseComponent == true">Character setup</h2>
+				<h2 *ngIf="baseComponent == false">Alternative setup</h2>
 			</div>
 			<div fxFlex style="text-align: right;">
 				<button (click)="toggleCollapsed()" type="button" mat-icon-button>

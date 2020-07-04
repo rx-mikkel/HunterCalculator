@@ -70,13 +70,14 @@ export class AppComponent implements OnInit {
 	];
 
 	ngOnInit() {
-		
+		this.addCompareCalculator(true);
 	}
 
-	addCompareCalculator() {
+	addCompareCalculator(base) {
 		var comparisons = this.compareComponents.length + 1;
 		var compareComponent = {
-			name: 'Alternative setup ' + comparisons.toString()
+			name: 'Alternative setup ' + comparisons.toString(),
+			base: base
 		}
 		this.compareComponents.push(compareComponent);
 	}
