@@ -14,7 +14,7 @@
 	}
 
 	.baseComponent {
-		background-color: #114223;
+		background-color: #024a1d;
 	}
 }
 
@@ -73,7 +73,8 @@
 	border-radius: 4px 4px 0px 0px;
 	margin: -16px;
 	margin-bottom: 0px;
-	padding: $spacing/4 $spacing;
+	padding: 0px $spacing;
+	background-image: linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(0,23,4,0.3) 100%);
 
 	h2 {
 		font-size: 20px;

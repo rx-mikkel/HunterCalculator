@@ -1,5 +1,5 @@
-<div class="character-setup" [class.collapsed]="collapsed">
-	<div class="full-view view" fxLayout="column" *ngIf="!collapsed">
+<div class="character-setup" [class.collapsed]="collapsed == 1">
+	<div class="full-view view" fxLayout="column" *ngIf="collapsed == 0">
 		<div class="header" [class.baseComponent]="baseComponent" fxLayout="row">
 			<div fxFLex="<grow>">
 				<h2 *ngIf="baseComponent == true">Character setup</h2>
@@ -61,16 +61,16 @@
 				</div>
 				<br />
 				<mat-form-field style="width: 90px; margin-right: 16px;">
-					<input matInput placeholder="Attack power" [(ngModel)]="baseAP">
+					<input (blur)="baseComponent == true ? saveToLocalStorage() : ''" matInput placeholder="Attack power" [(ngModel)]="baseAP">
 				</mat-form-field>
 				<mat-form-field style="width: 90px; margin-right: 16px;">
-					<input matInput placeholder="Critical strike (%)" [(ngModel)]="criticalStrikeChance">
+					<input (blur)="baseComponent == true ? saveToLocalStorage() : ''" matInput placeholder="Critical strike (%)" [(ngModel)]="criticalStrikeChance">
 				</mat-form-field>
 				<mat-form-field style="width: 90px; margin-right: 16px;">
-					<input matInput placeholder="Ammo dps" [(ngModel)]="ammo">
+					<input (blur)="baseComponent == true ? saveToLocalStorage() : ''" matInput placeholder="Ammo dps" [(ngModel)]="ammo">
 				</mat-form-field>
 				<mat-form-field style="width: 90px;">
-					<input matInput placeholder="Scope damage" [(ngModel)]="rangedScope">
+					<input (blur)="baseComponent == true ? saveToLocalStorage() : ''" matInput placeholder="Scope damage" [(ngModel)]="rangedScope">
 				</mat-form-field>
 				<hr />
 				<p>Agility converter</p>
@@ -98,7 +98,7 @@
 
 	</div>
 
-	<div class="compact-view view" fxLayout="column" *ngIf="collapsed">
+	<div class="compact-view view" fxLayout="column" *ngIf="collapsed == 1">
 		<div class="header" fxLayout="row">
 			<div fxFLex="<grow>">
 				<h2 *ngIf="baseComponent == true">Character setup</h2>
@@ -146,16 +146,16 @@
 				</div>
 			</div>
 			<mat-form-field class="stat-input">
-				<input matInput placeholder="AP" [(ngModel)]="baseAP">
+				<input (blur)="baseComponent == true ? saveToLocalStorage() : ''" matInput placeholder="AP" [(ngModel)]="baseAP">
 			</mat-form-field>
 			<mat-form-field class="stat-input">
-				<input matInput placeholder="Crit (%)" [(ngModel)]="criticalStrikeChance">
+				<input (blur)="baseComponent == true ? saveToLocalStorage() : ''" matInput placeholder="Crit (%)" [(ngModel)]="criticalStrikeChance">
 			</mat-form-field>
 			<mat-form-field class="stat-input small">
-				<input matInput placeholder="Ammo" [(ngModel)]="ammo">
+				<input (blur)="baseComponent == true ? saveToLocalStorage() : ''" matInput placeholder="Ammo" [(ngModel)]="ammo">
 			</mat-form-field>
 			<mat-form-field class="stat-input small" style="margin-right: 0px;">
-				<input matInput placeholder="Scope" [(ngModel)]="rangedScope">
+				<input (blur)="baseComponent == true ? saveToLocalStorage() : ''" matInput placeholder="Scope" [(ngModel)]="rangedScope">
 			</mat-form-field>
 		</div>
 		<div fxFlex>

@@ -7,7 +7,6 @@ import { FlexLayoutModule }           from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator.component';
-import { BaseStatsComponent } from './base-stats.component';
 import { CalculatedDamageComponent } from './calculated-damage.component';
 import { CalculatedDamageCollapsedComponent } from './calculated-damage-collapsed.component'
 
@@ -86,7 +85,6 @@ export class MaterialModule {}
   declarations: [
     AppComponent,
     CalculatorComponent,
-    BaseStatsComponent,
     CalculatedDamageComponent,
     CalculatedDamageCollapsedComponent
   ],

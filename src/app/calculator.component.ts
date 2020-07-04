@@ -73,7 +73,7 @@ export class CalculatorComponent implements OnInit {
 		}
 	];
 
-	collapsed: boolean = true;
+	collapsed: number = 0;
 
 	name: string = 'Alternative setup';
 
@@ -97,7 +97,20 @@ export class CalculatorComponent implements OnInit {
 	compareComponents: any = [];
 
 	ngOnInit() {
-		this.collapsed = !this.baseComponent;
+		if(localStorage['collapsed'] && this.baseComponent == true) {
+			console.log(localStorage['collapsed'])
+			this.collapsed = localStorage['collapsed'];
+			console.log(this.collapsed)
+		}
+		else {
+			if(this.baseComponent) {
+				this.collapsed = 0;
+			}
+			else {
+				this.collapsed = 1;
+			}
+		}
+
 		if(localStorage['baseAP']) {
 			this.baseAP = localStorage['baseAP'];
 		}
@@ -160,6 +173,9 @@ export class CalculatorComponent implements OnInit {
 		if(talent.currentRank < talent.ranks) {
 			talent.currentRank = talent.currentRank + 1;
 		}
+		if(this.baseComponent) {
+			this.saveToLocalStorage();
+		}
 	}
 
 	toggleMaxTalent(talent) {
@@ -184,11 +200,19 @@ export class CalculatorComponent implements OnInit {
 		if(talent.id == 'gs') {
 			this.gs = talent.currentRank;
 		}
+
+		if(this.baseComponent) {
+			this.saveToLocalStorage();
+		}
 	}
 
 	setSelectedWeapon(weapon) {
 		this.selectedWeapon = weapon;
 		this.displayWeaponOverlay = false;
+
+		if(this.baseComponent) {
+			this.saveToLocalStorage();
+		}
 	}
 
 	toggleWeaponOverlay() {
@@ -200,6 +224,33 @@ export class CalculatorComponent implements OnInit {
 		this.criticalStrikeChance = +(+this.criticalStrikeChance + (+this.agility)/53).toFixed(4);
 
 		this.agility = 1;
+
+		if(this.baseComponent) {
+			this.saveToLocalStorage();
+		}
+	}
+
+	saveToLocalStorage() {
+		localStorage['baseAP'] = this.baseAP;
+		localStorage['criticalStrikeChance'] = this.criticalStrikeChance;
+		localStorage['ammo'] = this.ammo;
+		localStorage['rangedScope'] = this.rangedScope;
+
+		localStorage['selectedWeapon'] = this.selectedWeapon.name;
+
+		localStorage['slaying'] = this.slaying;
+		localStorage['rws'] = this.rws;
+		localStorage['mortal'] = this.mortal;
+		localStorage['barrage'] = this.barrage;
+		localStorage['gs'] = this.gs;
+
+		if(this.collapsed) {
+			localStorage['collapsed'] = 1;
+		}
+		else {
+			localStorage['collapsed'] = 0;
+		}
+		
 	}
 
 	/* searches only strictly matching
@@ -210,7 +261,16 @@ export class CalculatorComponent implements OnInit {
 	*/
 
 	toggleCollapsed() {
-		this.collapsed = !this.collapsed;
+		if(this.collapsed == 0) {
+			this.collapsed = 1;
+		}
+		else {
+			this.collapsed = 0;
+		}
+
+		if(this.baseComponent) {
+			this.saveToLocalStorage();
+		}
 	}
 
 	// search for matches anywhere in the string
