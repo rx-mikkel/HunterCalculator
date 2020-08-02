@@ -337,6 +337,28 @@ export class WeaponService {
 			speed: 2.8,
 			recommended: true,
 			phase: 4
+		},
+		{
+			name: "Bow of Taut Sinew",
+			icon: '../assets/build/images/string.jpg',
+			type: 'Bow',
+			quality: 'epic',
+			dmgMin: 59,
+			dmgMax: 111,
+			speed: 2.2,
+			recommended: false,
+			phase: 5
+		},
+		{
+			name: "Blessed Qiraji Musket",
+			icon: '../assets/build/images/rifle11.jpg',
+			type: 'Gun',
+			quality: 'epic',
+			dmgMin: 86,
+			dmgMax: 160,
+			speed: 2.6,
+			recommended: false,
+			phase: 5
 		}
 	]
 
