@@ -12,9 +12,9 @@ export class AppComponent implements OnInit {
 
 	compareComponents: any = [];
 
-	phases: any = [4,5,6];
-	selectedPhase: number = 5;
-	recommendedWeapons: boolean = false;
+	phases: any = [1,2,3,4,5,6];
+	selectedPhase: number = 6;
+	recommendedWeapons: boolean = true;
 
 	selectedWeapon: any = {
 		name: "Ashjre'thul, Crossbow of Smiting",
