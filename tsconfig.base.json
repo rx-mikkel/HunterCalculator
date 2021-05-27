@@ -5,8 +5,11 @@
     "strict": false,
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": false,
+
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "resolveJsonModule": true,
     
-    "module": "esnext",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
