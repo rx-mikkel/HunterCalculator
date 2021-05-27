@@ -3,10 +3,8 @@ Title:      Screen styles
 Author:     Mikkel Oerum Skovgaard-Petersen
 */
 
-@import 
-	"_reset.scss",
-    "_defaults.scss",
-    "_layout.scss",
-    "_theme.scss",
-    "_talents.scss"
-    ;
+@import 'reset';
+@import 'defaults';
+@import 'layout';
+@import 'theme';
+@import 'talents';

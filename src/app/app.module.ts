@@ -40,13 +40,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { CdkTableModule } from '@angular/cdk/table';
+
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 @NgModule({
   exports: [
-    CdkTableModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -77,7 +76,10 @@ import { environment } from '../environments/environment';
     MatToolbarModule,
     MatTooltipModule,
   ],
-  imports: [ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })]
+  imports: [
+    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
+
+  ]
 })
 export class MaterialModule {}
 

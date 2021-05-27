@@ -44,8 +44,9 @@
 							<mat-icon>close</mat-icon>
 						</button>
 						<div *ngIf="weapons">
-							<mat-form-field style="width: 220px;">
-								<input matInput placeholder="Filter (by name)" aria-label="weapon" autofocus [formControl]="weaponControl">
+							<mat-form-field style="width: 220px;" appearance="standard">
+								<mat-label>Filter (name)</mat-label>
+								<input matInput placeholder="Placeholder" aria-label="weapon" autofocus [formControl]="weaponControl">
 							</mat-form-field>
 						</div>
 						<div class="inner">
@@ -130,9 +131,12 @@
 						<mat-icon>close</mat-icon>
 					</button>
 					<div *ngIf="weapons">
-						<mat-form-field style="width: 200px;">
-							<input matInput placeholder="Filter (by name)" aria-label="weapon" [formControl]="weaponControl">
-						</mat-form-field>
+						<div>
+							<mat-form-field appearance="standard" style="width: 200px;">
+								<mat-label>Filter (name)</mat-label>
+								<input matInput aria-label="weapon" [formControl]="weaponControl">
+							</mat-form-field>
+						</div>
 					</div>
 					<div class="inner">
 						<div class="weapon-container" [class.epic]="weapon.quality == 'epic'" [class.rare]="weapon.quality == 'rare'" [class.uncommon]="weapon.quality == 'uncommon'" (click)="setSelectedWeapon(weapon);" [hidden]="rcomWeapons == true && weapon.recommended == false || phase < weapon.phase" *ngFor="let weapon of filteredWeapons | async">
@@ -146,7 +150,8 @@
 				</div>
 			</div>
 			<mat-form-field class="stat-input">
-				<input (blur)="baseComponent == true ? saveToLocalStorage() : ''" matInput placeholder="AP" [(ngModel)]="baseAP">
+				<mat-label>AP</mat-label>
+				<input (blur)="baseComponent == true ? saveToLocalStorage() : ''" matInput [(ngModel)]="baseAP">
 			</mat-form-field>
 			<mat-form-field class="stat-input">
 				<input (blur)="baseComponent == true ? saveToLocalStorage() : ''" matInput placeholder="Crit (%)" [(ngModel)]="criticalStrikeChance">

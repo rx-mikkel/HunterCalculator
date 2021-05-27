@@ -1,12 +1,13 @@
-@import './node_modules/@angular/material/theming';
-// Include non-theme styles for core.
-@include mat-core();
+@use '~@angular/material' as mat;
 
-// Define a theme.
-$primary: mat-palette($mat-light-green, 900, 300, 800);
-$accent:  mat-palette($mat-green, 600, A100, A400);
+$primary: mat.define-palette(mat.$light-green-palette, 900, 300, 800);
+$accent: mat.define-palette(mat.$green-palette, 600, A100, A400);
 
-$theme: mat-dark-theme($primary, $accent);
+$my-theme: mat.define-dark-theme((
+ color: (
+   primary: $primary,
+   accent: $accent
+ )
+));
 
-// Include all theme styles for the components.
-@include angular-material-theme($theme);
+@include mat.all-component-themes($my-theme);
