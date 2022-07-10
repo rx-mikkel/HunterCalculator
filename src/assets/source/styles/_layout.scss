@@ -19,7 +19,7 @@ h2 {
 	width: 100%;
 
 	th, td {
-		padding: $spacing/4 0px;
+		padding: calc($spacing / 4) 0px;
 
 		font-size: 14px;
 	}
